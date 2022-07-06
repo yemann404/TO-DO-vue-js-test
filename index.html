@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TESTE VUE JS</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>TO DO</h1>
+
+        <input v-model="message" placeholder="message" type="text">
+        <button @click="ajouteText" v-if="message !='' ">Envoi</button>
+        <p>message est : {{message}}</p>
+
+        <p v-for="tables in table">
+            {{tables}}
+        </p>
+    </div>
+
+
+    <script>
+      const tx= Vue.createApp({
+             data() {
+                 return{
+                     message: '',
+                     table: ["legue of legende","valorant"]
+                 }  
+             },
+            
+             methods:{
+                ajouteText() {
+                this.table.push(this.message);
+                this.message=""
+             }
+           }
+         }).mount('#app')
+    </script>
+</body>
+</html>
